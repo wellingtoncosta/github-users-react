@@ -5,8 +5,6 @@ export default class UserRepositories extends Component {
   mapRepositories = (repository) => {
     const { description, id, html_url, language, name, stargazers_count } = repository;
 
-    console.log(repository);
-
     return (
       <a key={id} href={html_url} className="list-group-item list-group-item-action flex-column align-items-start">
         <div className="d-flex w-100 justify-content-between">
