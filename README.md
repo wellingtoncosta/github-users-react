@@ -17,7 +17,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Folder Structure
 
 ```
-githubinfo-react/
+github-react/
   public/
     index.html
     favicon.ico
