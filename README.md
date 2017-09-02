@@ -1,4 +1,4 @@
-# githubinfo-react
+# github-react
 
 A Simple React application that consumes GitHub users and repositories API.
 
