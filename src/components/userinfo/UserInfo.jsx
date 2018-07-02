@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import UserNotFound from './UserNotFound.jsx';
 import UserProfile from './UserProfile.jsx';
 import UserRepositories from './UserRepositories';
