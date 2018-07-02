@@ -6,9 +6,9 @@ import sagas from '../sagas';
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware];
 
-const appReducer = combineReducers({ ...reducers, router: routerReducer});
+const appReducer = combineReducers({ ...reducers });
 const store = createStore(appReducer, applyMiddleware(...middlewares));
 
 sagaMiddleware.run(sagas);
 
-export { store };
+export default store;

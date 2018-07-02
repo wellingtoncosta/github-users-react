@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import actions from '../../../api/actions';
 
 class UsersList extends Component {
   render() {
@@ -10,4 +12,19 @@ class UsersList extends Component {
   }
 }
 
-export default UsersList;
+const mapDispatchToProps = dispatch => ({
+  fetchAll: () => dispatch({ type: actions.user.FETCH_ALL })
+});
+
+const mapStateToProps = store => {
+  const { user } = store;
+  const { isLoading, users } = user;
+  const error = user.error ? user.error : "";
+  return {
+    isLoading,
+    error,
+    users
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersList);
