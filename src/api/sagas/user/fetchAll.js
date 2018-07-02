@@ -1,15 +1,21 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import actions from '../../actions';
 import { BASE_URL } from '../apiUrl';
+import Axios from 'axios';
 
 const fetchAll = () => {
-  return fetch(`${BASE_URL}/users`)
+  return Axios.get(`${BASE_URL}/users`)
     .then(response => {
-      if (response.status >= 400) {
+      const { data, status } = response;
+      if (status >= 400) {
         return { error: 'Could not fetch users.' };
+      } else {
+        return { users: data };
       }
-      return response.json();
-    }).then(json => json);
+    })
+    .catch(() => {
+      return { error: 'Could not fetch users.' };
+    });
 }
 
 export function* prepareSaga() {
@@ -18,7 +24,8 @@ export function* prepareSaga() {
   if (error) {
     yield put({ type: actions.user.FETCH_ALL_ERROR, error });
   } else {
-    yield put({ type: actions.user.FETCH_ALL_SUCCESS, payload });
+    const { users } = payload;
+    yield put({ type: actions.user.FETCH_ALL_SUCCESS, users });
   }
 }
 

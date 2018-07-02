@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import { default as MaterialToolbar} from '@material-ui/core/Toolbar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 const styles = {
   root: {
@@ -13,21 +13,21 @@ const styles = {
   }
 };
 
-class Toolbar extends Component {
+class Searchbar extends Component {
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
         <AppBar position="absolute">
-          <MaterialToolbar>
+          <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
               Github Users
             </Typography>
-          </MaterialToolbar>
+          </Toolbar>
         </AppBar>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(Toolbar);
+export default withStyles(styles)(Searchbar);

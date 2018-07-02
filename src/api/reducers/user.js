@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        users: action.payload
+        users: action.users
       };
       case actions.user.FETCH_ALL_ERROR:
       return {
@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        users: action.payload
+        user: action.user
       };
     case actions.user.FETCH_BY_USERNAME_ERROR:
       return {
