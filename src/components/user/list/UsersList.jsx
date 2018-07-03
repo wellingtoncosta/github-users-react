@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Divider, List, ListItem, ListItemText } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
-import { navigate } from "@reach/router"
+import { navigate } from "@reach/router";
 import Searchbar from '../../toolbar/Searchbar';
 import { connect } from 'react-redux';
 import actions from '../../../api/actions';

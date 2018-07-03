@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
+import { withStyles, IconButton } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { navigate } from "@reach/router";
 
 const styles = {
   root: {
@@ -13,7 +15,11 @@ const styles = {
   },
   flex: {
     flex: 1
-  }
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20
+  },
 };
 
 class Tabbar extends Component {
@@ -33,6 +39,13 @@ class Tabbar extends Component {
       <div className={classes.root}>
         <AppBar style={{position: 'fixed'}}>
           <Toolbar>
+            <IconButton
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="Back"
+              onClick={() => navigate('/')}>
+              <ArrowBackIcon />
+            </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
               Github Users
             </Typography>
