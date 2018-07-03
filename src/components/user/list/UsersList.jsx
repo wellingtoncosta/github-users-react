@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Divider, List, ListItem, ListItemText } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
+import { navigate } from "@reach/router"
 import Searchbar from '../../toolbar/Searchbar';
 import { connect } from 'react-redux';
 import actions from '../../../api/actions';
@@ -17,15 +18,17 @@ const styles = theme => ({
 class UsersList extends Component {
 
   componentDidMount() {
-    const { fetchAll } = this.props;
-    fetchAll();
+    this.props.fetchAll();
   }
 
   mapUsers = user => {
     const { classes } = this.props;
     return (
       <div key={user.id}>
-        <ListItem button className={classes.listItem}>
+        <ListItem
+          button
+          className={classes.listItem}
+          onClick={() => navigate(`/${user.login}`)}>
           <Avatar alt={`${user.login} profile pic`} src={user.avatar_url} />
           <ListItemText primary={`@${user.login}`} />
         </ListItem>
@@ -59,11 +62,7 @@ const mapStateToProps = store => {
   const { user } = store;
   const { isLoading, users } = user;
   const error = user.error ? user.error : "";
-  return {
-    error,
-    isLoading,
-    users
-  };
+  return { error, isLoading, users };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UsersList));
