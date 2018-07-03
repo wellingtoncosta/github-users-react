@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 import LocationIcon from '@material-ui/icons/LocationOn';
 import OrganizationIcon from '@material-ui/icons/Group';
 import Progress from '../../common/Progress';
+import AlertDialog from '../../common/AlertDialog';
 import { connect } from 'react-redux';
 import actions from '../../../api/actions';
 
@@ -27,7 +28,7 @@ class UserProfile extends Component {
   }
 
   render() {
-    const { classes, isLoading, user } = this.props;
+    const { classes, error, isLoading, user } = this.props;
     return (
       <div>
         <Progress loading={isLoading}>
@@ -92,6 +93,7 @@ class UserProfile extends Component {
             </Grid>
           : <div></div>}
         </Progress>
+        <AlertDialog open={!!error} title="Failure" content={error} />
       </div>
     );
   }
