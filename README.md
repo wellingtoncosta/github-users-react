@@ -1,4 +1,4 @@
-# github-react
+# github-users-react
 
 A simple React application that consumes GitHub API. This project also uses [Material UI][1] for UI components, [axios][1] to do http requests, [redux][2] for app state management, [redux-saga][3] to deal with side-effects and [reach-router][4] to create app routes.
 
