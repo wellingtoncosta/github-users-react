@@ -4,9 +4,9 @@ A simple React application that consumes GitHub API. This project also uses [Mat
 
 This project was bootstrapped with [create-react-app][5].
 
-[1]: [https://github.com/mui-org/material-ui]
-[2]: [https://github.com/axios/axios]
-[3]: [https://github.com/reduxjs/redux]
-[4]: [https://github.com/redux-saga/redux-saga]
-[5]: [https://github.com/reach/router]
-[6]: [https://github.com/facebookincubator/create-react-app]
+[1]: https://github.com/mui-org/material-ui
+[2]: https://github.com/axios/axios
+[3]: https://github.com/reduxjs/redux
+[4]: https://github.com/redux-saga/redux-saga
+[5]: https://github.com/reach/router
+[6]: https://github.com/facebookincubator/create-react-app
