@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -22,7 +23,7 @@ class Tabbar extends Component {
   };
 
   handleTabChange = (event, value) => {
-    this.setState({ tab: value });
+    this.setState({ tab: value }, () => this.props.onTabChanged(value));
   };
 
   render() {
@@ -30,7 +31,7 @@ class Tabbar extends Component {
     const { tab } = this.state;
     return (
       <div className={classes.root}>
-        <AppBar position="absolute">
+        <AppBar style={{position: 'fixed'}}>
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
               Github Users
@@ -49,5 +50,9 @@ class Tabbar extends Component {
     );
   }
 }
+
+Tabbar.propTypes = {
+  onTabChanged: PropTypes.func.isRequired
+};
 
 export default withStyles(styles)(Tabbar);
