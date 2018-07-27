@@ -11,13 +11,15 @@
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "serve": "^9.4.0"
   },
   "devDependencies": {
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "npm run build && serve -s build/",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom"
   }
